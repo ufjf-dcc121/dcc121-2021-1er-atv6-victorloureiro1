@@ -494,7 +494,7 @@
     
           celulas[i].addEventListener('click', clicando, false);
     
-          if (!celulas[i].className) {
+          if (celulas[i].classList.length === 0) {
             celulas[i].classList.add('parede');
           }
     
@@ -502,24 +502,21 @@
         function clicando(event) {
           let target = event.target
     
-          console.log("A celula possui a classe: " + target.className);
+          console.log("A celula possui a classe: " + target.classList);
     
-          if (target.className = 'wall') {
+          if (target.classList.contains('wall')) {
             target.classList.remove('wall');
-          }
-          if (!target.className) {
+          } else if (target.classList.length === 0) {
             target.classList.add('orc');
-          }
-          if (target.className = 'orc') {
+          } else if (target.classList.contains('orc')) {
             target.classList.remove('orc');
             target.classList.add('treasure');
-          }
-          if (target.className = 'treasure') {
+          }else if (target.classList.contains('treasure')) {
             target.classList.remove('treasure');
             target.classList.add('wall');
           }
     
-          console.log("A celula possui nova classe apos mudanças: " + target.className);
+          console.log("A celula possui nova classe apos mudanças: " + target.classList);
     
         }
       </script>
